@@ -1,0 +1,2 @@
+Place Draco WASM decoder files here (draco_decoder.wasm, draco_wasm_wrapper.js).
+Download from: https://www.gstatic.com/draco/versioned/decoders/1.5.6/
