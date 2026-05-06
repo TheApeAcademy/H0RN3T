@@ -1,0 +1,12 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "cd ../.. && npx turbo run build --filter=@h0rn3t/web",
+  "outputDirectory": "apps/web/.next",
+  "installCommand": "npm install",
+  "crons": [
+    {
+      "path": "/api/threat-feed/ingest",
+      "schedule": "0 */6 * * *"
+    }
+  ]
+}
