@@ -4,7 +4,11 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   experimental: {
     serverActions: {
-      allowedOrigins: ['localhost:3000'],
+      allowedOrigins: [
+        'localhost:3000',
+        '*.vercel.app',
+        process.env.NEXT_PUBLIC_APP_URL ?? '',
+      ].filter(Boolean),
     },
   },
   images: {
