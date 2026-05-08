@@ -21,6 +21,7 @@ export default async function ConversationPage({
     .single()
 
   if (!conversation) notFound()
+  const conv = conversation as { id: string; title: string; model: string; user_id: string }
 
   const { data: messages } = await supabase
     .from('messages')
@@ -41,10 +42,10 @@ export default async function ConversationPage({
         <div className="w-px h-4 bg-hornet-border" />
         <div className="flex-1 min-w-0">
           <h1 className="font-mono text-sm font-bold text-hornet-text truncate">
-            {conversation.title}
+            {conv.title}
           </h1>
           <p className="font-mono text-[10px] text-hornet-muted">
-            Model: {conversation.model}
+            Model: {conv.model}
           </p>
         </div>
         <div className="flex items-center gap-2">
