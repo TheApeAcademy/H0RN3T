@@ -20,14 +20,18 @@ export default function LoginPage() {
     setLoading(true)
     setError(null)
 
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
-    if (error) {
-      setError(error.message)
+    try {
+      const { error } = await supabase.auth.signInWithPassword({ email, password })
+      if (error) {
+        setError(error.message)
+        setLoading(false)
+        return
+      }
+      router.push(redirect)
+    } catch {
+      setError('Authentication failed. Please try again.')
       setLoading(false)
-      return
     }
-    router.push(redirect)
-    router.refresh()
   }
 
   return (
